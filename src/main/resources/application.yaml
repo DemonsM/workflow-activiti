@@ -1,0 +1,26 @@
+spring:
+  # datasource \u6570\u636E\u6E90\u914D\u7F6E\u5185\u5BB9
+  datasource:
+    url: jdbc:mysql://localhost:3306/workflow?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+
+  #activiti\u914D\u7F6E
+  activiti:
+    check-process-definitions: false
+    database-schema-update: true
+    async-executor-activate: false
+
+# mybatis-plus \u914D\u7F6E\u5185\u5BB9
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto # ID \u4E3B\u952E\u81EA\u589E
+      logic-delete-value: 1 # \u903B\u8F91\u5DF2\u5220\u9664\u503C(\u9ED8\u8BA4\u4E3A 1)
+      logic-not-delete-value: 0 # \u903B\u8F91\u672A\u5220\u9664\u503C(\u9ED8\u8BA4\u4E3A 0)
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.ink.workflowactiviti.entity
+
